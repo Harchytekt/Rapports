@@ -1,0 +1,200 @@
+\documentclass[a4paper, 12pt]{report}
+% Allows writing the document in english.
+\usepackage[francais]{babel}
+% Allows to use images.
+\usepackage{graphicx}
+% Provides hyperlinks within the document.
+\usepackage{enumitem}
+% Adds space between paragraphs.
+\usepackage{parskip}
+% Supports Text Companion fonts (necessary for gensymb).
+\usepackage{textcomp}
+\usepackage{array}
+\usepackage{multicol}
+% Better tabular
+\usepackage{tabularx}
+% Allows to use colors.
+\usepackage{xcolor}
+\usepackage[margin=4cm]{geometry}
+\usepackage{varwidth}
+% Euro
+\usepackage{eurosym}
+\usepackage{amsmath}
+\usepackage[T1]{fontenc} 
+\usepackage{lmodern} 
+
+\usepackage{minted}
+
+\usepackage{gensymb}
+
+% Default fixed font does not support bold face
+\DeclareFixedFont{\ttb}{T1}{txtt}{bx}{n}{12} % for bold
+\DeclareFixedFont{\ttm}{T1}{txtt}{m}{n}{12}  % for normal
+
+\setcounter{tocdepth}{3}
+
+% Custom colors
+\usepackage{color}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+
+\usepackage{listings}
+
+% Python style for highlighting
+\newcommand\pythonstyle{\lstset{
+language=Python,
+basicstyle=\ttm,
+otherkeywords={self},             % Add keywords here
+keywordstyle=\ttb\color{deepblue},
+emph={MyClass,__init__},          % Custom highlighting
+emphstyle=\ttb\color{deepred},    % Custom highlighting style
+stringstyle=\color{deepgreen},
+frame=tb,                         % Any extra options here
+showstringspaces=false            %
+}}
+
+
+% Python environment
+\lstnewenvironment{python}[1][]
+{
+\pythonstyle
+\lstset{#1}
+}
+{}
+
+% Python for external files
+\newcommand\pythonexternal[2][]{{
+\pythonstyle
+\lstinputlisting[#1]{#2}}}
+
+% Python for inline
+\newcommand\pythoninline[1]{{\pythonstyle\lstinline!#1!}}
+
+\usepackage{subfigure}
+\usepackage[
+    type={CC},
+    modifier={by-nc-nd},
+    version={4.0},
+]{doclicense}
+
+\usepackage[colorlinks=true,urlcolor=black,linkcolor=black]{hyperref}
+% New columns types
+% Left
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+% Center
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+% Right
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+
+% Add more space before and after table
+\newenvironment{centerspace}{\setlength{\topsep}{1ex}\center}{\endcenter}
+% Sets the color of gray.
+\newcommand{\gray}{\rowcolor[gray]{.90}}
+% Allows to draw lines.
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+% Uses the arabic numerals for sections.
+\renewcommand{\thesection}{\arabic{section}}
+
+% Width of text.
+\addtolength{\textwidth}{2cm}
+% Odd page left margin.
+\addtolength{\oddsidemargin}{-1cm}
+% Height of main text.
+\addtolength{\textheight}{2cm}
+% Removes indentation.
+\setlength\parindent{0pt}
+% Indicates overflow words.
+\setlength{\overfullrule}{10pt}
+% Height of items.
+\setitemize{itemsep=1em}
+
+%%%%********************************************************************
+% fancy quotes
+\definecolor{quotemark}{gray}{0.7}
+\makeatletter
+\def\fquote{%
+    \@ifnextchar[{\fquote@i}{\fquote@i[]}%]
+           }%
+\def\fquote@i[#1]{%
+    \def\tempa{#1}%
+    \@ifnextchar[{\fquote@ii}{\fquote@ii[]}%]
+                 }%
+\def\fquote@ii[#1]{%
+    \def\tempb{#1}%
+    \@ifnextchar[{\fquote@iii}{\fquote@iii[]}%]
+                      }%
+\def\fquote@iii[#1]{%
+    \def\tempc{#1}%
+    \vspace{1em}%
+    \noindent%
+    \begin{list}{}{%
+         \setlength{\leftmargin}{0.1\textwidth}%
+         \setlength{\rightmargin}{0.1\textwidth}%
+                  }%
+         \item[]%
+         \begin{picture}(0,0)%
+         \put(-15,-5){\makebox(0,0){\scalebox{3}{\textcolor{quotemark}{``}}}}%
+         \end{picture}%
+         \begingroup\itshape}%
+ %%%%********************************************************************
+ \def\endfquote{%
+ \endgroup\par%
+ \makebox[0pt][l]{%
+ \hspace{0.8\textwidth}%
+ \begin{picture}(0,0)(0,0)%
+ \put(15,15){\makebox(0,0){%
+ \scalebox{3}{\color{quotemark}''}}}%
+ \end{picture}}%
+ \ifx\tempa\empty%
+ \else%
+    \ifx\tempc\empty%
+       \hfill\rule{100pt}{0.5pt}\\\mbox{}\hfill\tempa,\ \emph{\tempb}%
+   \else%
+       \hfill\rule{100pt}{0.5pt}\\\mbox{}\hfill\tempa,\ \emph{\tempb},\ \tempc%
+   \fi\fi\par%
+   \vspace{0.5em}%
+ \end{list}%
+ }%
+ \makeatother
+
+ %%%% ********************************************************************
+
+% Starts roman numbering (trick to not numbering the first pages).
+\pagenumbering{roman}
+
+\begin{document}
+\renewcommand{\bibname}{Références}
+\input{src/flyleaf_bw}
+\newpage
+\input{src/blank}
+\input{src/flyleaf}
+\newpage
+\input{src/blank}
+\newpage
+\input{src/thanks}
+\newpage
+\input{src/license}
+\newpage
+\pagenumbering{arabic}
+\tableofcontents
+\newpage
+\input{src/presentation}
+\newpage
+\input{src/choices}
+\newpage
+\input{src/algorithms}
+\newpage
+\input{src/problems}
+\newpage
+\input{src/futur}
+\newpage
+\input{src/conclusions}
+\newpage
+\input{src/code}
+\newpage
+\phantomsection
+\input{src/references}
+\newpage
+\input{src/blank}
+\end{document}

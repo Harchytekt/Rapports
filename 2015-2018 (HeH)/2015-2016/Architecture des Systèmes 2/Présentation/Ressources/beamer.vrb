@@ -1,0 +1,13 @@
+
+\begin{center}
+Texte non fragilisé, la \textbf{preuve}
+\end{center}
+
+\begin{verbatim}
+Pour afficher cette page, j'ai utilisé ce code :
+\begin{frame}[fragile]
+
+Suivi de l'environnement verbatim :
+\begin{verbatim}
+\end{verbatim}
+

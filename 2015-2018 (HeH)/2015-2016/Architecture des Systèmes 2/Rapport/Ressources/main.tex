@@ -1,0 +1,74 @@
+\documentclass[12pt, a4paper]{report}
+
+\usepackage[utf8]{inputenc}
+\usepackage[francais]{babel}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{gensymb}
+\usepackage{eurosym}
+\usepackage{siunitx}
+\usepackage{colortbl}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+\usepackage[
+    type={CC},
+    modifier={by-nc-nd},
+    version={4.0},
+]{doclicense}
+
+\usepackage[colorlinks=true,urlcolor=black,linkcolor=black]{hyperref}
+\edef\UrlBreaks{\do\-\UrlBreaks}
+\pdfpageattr {/Group << /S /Transparency /I true /CS /DeviceRGB>>} 
+
+\newcommand*{\boxcolor}{orange}
+\makeatletter
+\renewcommand{\boxed}[1]{\textcolor{\boxcolor}{%
+\tikz[baseline={([yshift=-1ex]current bounding box.center)}] \node [rectangle, minimum width=1ex,rounded corners,draw] {\normalcolor\m@th$\displaystyle#1$};}}
+ \makeatother
+
+\hyphenpenalty=10000
+\renewcommand{\thesection}{\arabic{section}}
+\newcommand*{\TakeFourierOrnament}[1]{{%
+\fontencoding{U}\fontfamily{futs}\selectfont\char#1}}
+\newcommand*{\danger}{\TakeFourierOrnament{66}}
+\setlength\parindent{0pt}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\newcommand{\gray}{\rowcolor[gray]{.90}}
+
+\begin{document}
+\renewcommand{\bibname}{Références}
+\input{src/flyleaf-nocolors}
+\newpage
+\input{src/blank}
+\newpage
+\input{src/flyleaf}
+\newpage
+\input{src/blank}
+\newpage
+\input{src/license}
+\newpage
+\tableofcontents
+\newpage
+\input{src/intro}
+\newpage
+\input{src/windows}
+\newpage
+\input{src/unix}
+\newpage
+\input{src/mac}
+\newpage
+\input{src/others}
+\newpage
+\input{src/conclusion}
+\newpage
+\input{src/references}
+\newpage
+\input{src/figures}
+\newpage
+\input{src/quiz}
+\newpage
+\input{src/blank}
+\end{document}

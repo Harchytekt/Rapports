@@ -1,0 +1,73 @@
+\documentclass[serif]{beamer}
+
+% Charge les paquets
+\input{hehBeamerCore/packages/hehBeamerPackagesList}
+% Charge la configuration des paquets
+\input{hehBeamerCore/packages/hehBeamerPackagesConfiguration}
+% Charge les couleurs
+\input{hehBeamerCore/colors/colors}
+% Charge les variables
+\input{hehBeamerCore/definitions/hehBeamerDefinitions}
+% Charge le thème de la HEH
+\input{hehBeamerCore/theme/hehBeamerTheme}
+% Charge les commandes personnalisées
+\input{hehBeamerCore/commands/hehBeamerCommands}
+
+
+
+
+
+% Veuillez changer les champs ci-dessous
+
+% Premier Auteur
+\auteurUn{Terencio Agozzino}
+
+% Second Auteur
+\auteurDeux{Alexandre Ducobu}
+
+% Noms Auteurs
+\noms{Agozzino - Ducobu}
+
+% Le titre complet de votre cours ou de la présentation
+\titre{Initiation aux nano-ordinateurs: Jeu de Pong}
+
+% Le titre abrégé de votre cours ou de la présentation
+\titreAbrege{T-PINI-413 : Jeu de Pong}
+
+% L'année scolaire (exemple: 2016 -- 2017). Le double tiret est important.
+\annee{2016 -- 2017}
+
+% L'interligne souhaité (par défaut 1.5)
+\interligne{1.2}
+
+% Taille image de la page de garde
+\configure{\logoCampus}{0.35}
+
+
+
+
+% Charge les données de l'auteur
+\input{hehBeamerCore/authorInfos/hehBeamerAuthorInfos}
+% Charge la configuration du document
+\input{hehBeamerCore/configuration/hehBeamerDocumentConfiguration}
+
+
+\begin{document}
+	\pageDeTitre
+	
+	\begin{frame}
+        \frametitle{Sommaire}
+        \tableofcontents
+    \end{frame}
+    
+    \newPart{introduction}
+    
+    \newPart{choix}
+    
+    \newPart{fonctionnalites}
+	
+	\newPart{demonstration}
+    
+	\hehBeamerInfo
+	
+\end{document}

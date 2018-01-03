@@ -1,0 +1,210 @@
+\documentclass[pdftex,12pt,a4paper]{report}
+
+\usepackage[pdftex]{graphicx}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+\usepackage[latin1]{inputenc}
+\usepackage[francais]{babel}
+\usepackage{lmodern}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+\begin{document} \sloppy
+
+\input{./title.tex}
+
+\newpage
+\tableofcontents
+%\strut %ou ~ ou \mbox{} ou \null % Page blanche
+
+
+\chapter*{Introduction/objectif du projet} % Pas de numéro
+\addcontentsline{toc}{chapter}{Introduction/objectif du projet}
+Dans le cadre de notre première année de bachelier, nous avons dû réaliser un projet en langage Java. Le but de celui-ci étant de réaliser une implémentation du célèbre  jeu du « Stratego ». Le jeu doit être jouable via une interface graphique. De plus, deux intelligences artificielles distinctes doivent être fonctionnelles.\\
+Ce projet a été réalisé par groupe de deux étudiants dans un laps de temps d'environ trois mois et demi.
+
+\chapter*{Argumentation des choix personnels effectués}
+\addcontentsline{toc}{chapter}{Argumentation des choix personnels effectués}
+
+\subsection*{Rapport}
+\addcontentsline{toc}{subsection}{Rapport}
+Nous avons choisi de faire le rapport en \LaTeX{} pour nous familiariser avec le langage pour la suite de notre cursus universitaire ainsi que pour les nombreux avantages qu'offre \LaTeX{}. En effet, il offre une mise en page claire et nette ainsi qu'un panel de fonctionnalités assez large qui facilitent la rédaction d'un rapport.
+
+\subsection*{IDE et GIT}
+\addcontentsline{toc}{subsection}{IDE et GIT}
+Pour nous faciliter la tâche lors du développement de l'application nous avons utilisé Eclipse comme IDE. De plus, nous nous sommes servis du célèbre logiciel GIT comme gestionnaire de versions. Cela nous a permis de nous familiariser à différentes notions que nous retrouverons dans le milieu professionnel plus tard.
+
+\subsection*{Interface Graphique (GUI)}
+\addcontentsline{toc}{subsection}{Interface Graphique (GUI)}
+Nous avons privilégié une interface simple, claire et intuitive avec des menus déroulants. Grâce à cela, nous pouvons créer plusieurs instances de jeu sans devoir relancer le programme complet.\\
+Nous nous sommes inspirés du jeu original pour notre interface graphique, chaque équipe a sa propre couleur: bleue ou rouge.\\
+Les pions plus spéciaux comme les bombes, le drapeau, l'espion et les pions retournés possèdent une image qui les caractérisent, basée sur le langage Unicode \hyperref[Sources]{(voir Sources)}.\\
+Quant aux lacs, ils ont été remplacés par des caisses en bois \hyperref[Sources]{(libres d'utilisation, voir Sources)}.
+
+\subsection*{Intelligences artificielles}
+\addcontentsline{toc}{subsection}{Intelligences artificielles}
+Pour les IA, nous nous sommes vite rendu compte que nous n'avions pas le niveau pour implémenter un puissant algorithme pour le jeu du Stratego. Nous avons donc tenté de créer un algorithme suffisamment complexe en nous basant sur nos stratégies lorsque nous jouons. Pour ce faire, nous avons déterminé trois catégories de pions adverses : les pions connus, ceux qui ont déjà bougé et les autres.\\
+Grâce à ces catégories, nous avons pu établir un système de probabilités plus élaboré : quand nous simulons une attaque sur un pion adverse qui s'est déjà déplacé, nous ne devons pas compter les bombes restantes, ni le drapeau ni les pions connus. Par contre, pour que ce système fonctionne correctement, les éclaireurs vont tenter de se sacrifier sur les pions adverses inconnus.\\
+Pour procéder à la mise en place des pions de l'IA, notre algorithme crée une grille aléatoire et ensuite il l'évalue selon différents critères comme la position du drapeau ou encore son éventuelle protection par des bombes. Si l'évaluation n'est pas satisfaisante, il recommence ce processus.
+
+\subsection*{Mode en ligne}
+\addcontentsline{toc}{subsection}{Mode en ligne}
+Pour pouvoir implémenter un mode de jeu en réseau, nous avons décidé d'utiliser la librairie Kryonet car elle est facile d'utilisation et nous permettait de faire ce que nous voulons facilement.
+
+\chapter*{Les points forts du projet}
+\addcontentsline{toc}{chapter}{Les points forts du projet}
+\subsection*{Fonctionnalités supplémentaires}
+\addcontentsline{toc}{subsection}{Fonctionnalités supplémentaires}
+La principale fonctionnalité supplémentaire de ce projet est le nombre de modes de jeu disponibles.\\
+En effet, notre projet propose quatre modes de jeux différents:
+\begin{itemize}
+    \item[\textbullet] un mode joueur contre intelligence artificielle avec deux niveaux de difficulté (obligatoire);
+    \item[\textbullet] un mode joueur contre joueur du Stratego Original c'est-à-dire 40 pions par équipe;
+    \item[\textbullet] un mode joueur contre joueur du Stratego Duel c'est-à-dire 10 pions par équipe;
+    \item[\textbullet] un mode joueur contre joueur en ligne du Stratego Original.\\
+\end{itemize}
+Nous avons aussi ajouté un panel de chaque côté de la grille. Ceux-ci indiquent au(x) joueur(s) quels sont les pions restants pour chaque équipe.\\
+
+Au cours d'une partie le joueur peut activer un mode triche: soit il affiche tous les pions de la grille, soit il affiche seulement les pions connus du joueur ennemi.\\
+Cependant lors d'une partie en ligne, seul le mode d'affichage des pions connus est disponible pour une raison évidente.\\
+
+Notre interface graphique claire et conviviale qui affiche le dernier mouvement effectué de la partie.\\
+
+Nous avons implémenté une petite fonctionnalité qui permet de tester les différentes IA sur un nombre défini de partie.\\
+
+Nous avons aussi ajouté un gestionnaire de grille de départ qui est plus convivial et facile d'utilisation.
+
+\subsection*{Sauvegarde}
+\addcontentsline{toc}{subsection}{Sauvegarde}
+Après chaque coup, le jeu sauvegarde la partie en cours automatiquement.\\
+Ainsi, l'utilisateur n'a pas besoin de sauvegarder la partie lorsqu'il quitte le jeu.
+
+\chapter*{Les points faibles du projet}
+\addcontentsline{toc}{chapter}{Les points faibles du projet}
+Certaines lignes de code reviennent à plusieurs reprises.\\
+Par exemple, nous aurions pu utiliser un CardLayout au lieu de créer différentes JFrame pour les menus et les fenêtres d'initialisation des équipes. Cela aurait allégé le code et diminué le nombre de lignes de code dupliquées. Par contre, nous aurions perdu la faculté de pouvoir lancer plusieurs parties en même temps.\\
+
+La complexité de certains algorithmes comme la création de grilles automatique ainsi que le chargement des images auraient pu être améliorés. Ces changements pourraient apparaitre lors d'une mise à jour du jeu.\\
+Toujours dans les possibles améliorations du Stratego, nous pourrions augmenter le niveau de l'intelligence artificielle forte en ajoutant différents cas de jeu et en tentant de simuler les coups adverses pour pouvoir avoir plusieurs coups d'avance.
+
+\chapter*{Erreurs connues du programme}
+\addcontentsline{toc}{chapter}{Erreurs connues du programme}
+La seule erreur connue dans le programme est le scan du réseau local pour découvrir un serveur ne trouve pas toujours ce serveur. Nous ne pouvons pas corriger ce problème car celui-ci vient d'une méthode de \textbf{java.net.InetAddress} qui n'est donc pas cent pour cent fiable.
+
+\chapter*{Répartition des tâches}
+\addcontentsline{toc}{chapter}{Répartition des tâches}
+Alexandre s'est chargé des test unitaires, du mode bonus du stratego duel, du système d'initialisation d'une nouvelle partie et du système de mise en place des pions manuelle en début de partie pour le joueur réel.\\
+De plus, il a tapé la majorité de la javadoc.\\\\
+Giuliano a quant à lui implémenté les mécaniques du stratego, l'interface graphique en jeu, le système de test d'IA et le mode en ligne.\\\\
+Pour l'IA, nous avons écrit un pseudo code ensemble qui a ensuite été implémenté par Giuliano.
+
+\chapter*{Apports du projet}
+\addcontentsline{toc}{chapter}{Apports du projet}
+\subsection*{Apports positifs}
+\addcontentsline{toc}{subsection}{Apports positifs}
+Grâce à ce projet nous avons pu mettre en pratique ce que nous avons appris aux cours de \textit{Programmation et Algorithmique I et II}.\\
+Nous avons aussi pu nous familiariser avec le langage LATEX qui offre de nombreux avantages dans la rédaction de rapport.\\
+En outre, le projet étant en groupe, nous avons dû travailler ensemble et utiliser des logiciels que nous utiliserons plus tard en entreprise, comme le gestionnaire de versions GIT.\\
+De plus, notre code ainsi que la javadoc étant écrits en anglais, nous avons dû utiliser un langage anglais plus pratique et tourné vers l'informatique.
+
+
+\subsection*{Apports négatifs}
+\addcontentsline{toc}{subsection}{Apports négatifs}
+Le principal point négatif du projet est que, lorsque nous nous y consacrions nous devions délaisser les autres matières.
+
+
+\chapter*{Sources}
+\addcontentsline{toc}{chapter}{Sources}
+\subsection*{Sources}
+\addcontentsline{toc}{subsection}{Sources}
+\label{Sources}
+
+\begin{itemize}
+    \item[-] Principalement pour l'interface graphique, OpenClassrooms:\\
+    \url{http://fr.openclassrooms.com/informatique/cours/apprenez-a-programmer-en-java}
+    
+    \item[-] Pour résoudre différentes erreurs rencontrées lors du développement:\\ 
+    \url{http://www.jmdoudoux.fr} et \url{http://stackoverflow.com}
+
+    \item[-] Pour le nom automatique des grilles que l'on sauvegarde :\\
+    \url{http://stackoverflow.com/questions/6762971/java-joptionpane-default-text}
+	
+    \item[-] Pour les images utilisées:\\
+    \url{http://opengameart.org/content/2d-wooden-box} (pour les caisses)\\
+    \url{http://www.fileformat.info/info/unicode/char/1f4a3/index.htm} (ici, la bombe)
+    
+    \item[-] Pour la librairie Kryonet qui a permis de faire le mode en ligne:\\
+    \url{https://github.com/EsotericSoftware/kryonet}
+    
+    \item[-] Pour la page de garde du rapport:\\
+    \url{http://en.wikibooks.org/wiki/LaTeX/Title_Creation}
+    
+\end{itemize}
+
+
+\chapter*{Annexe}
+\addcontentsline{toc}{chapter}{Annexe}
+\subsection*{Manuel d'utilisateur}
+\addcontentsline{toc}{subsection}{Manuel d'utilisateur}
+\subsubsection*{Créer une grille avant de jouer}
+\begin{enumerate}
+    \item Lancez le jeu, vous voilà dans le menu.
+    \item Dans 'Type de jeu', choisissez 'Normal'.
+    \item Sélectionnez le nombre de joueurs.
+    \item Sélectionnez une des options manuelles disponibles.
+    \item Sélectionnez et placez les pions en bas de la fenêtre.
+    \item Pour supprimer un pion déjà placé, il vous suffit de faire un clic droit sur ce pion.
+    \item une fois satisfait de votre grille, vous pouvez sauvegarder votre grille et jouer.
+\end{enumerate}
+
+\subsubsection*{Créer une grille}
+\begin{enumerate}
+    \item Lancez le jeu, vous voilà dans le menu.
+    \item Dans la barre de menu, choisissez 'Options'.
+    \item Sélectionnez 'Gestionnaire de grilles'.
+    \item Sélectionnez 'Nouvelle grille'.
+    \item Vous pouvez maintenant créer votre grille et la sauvegarder.
+\end{enumerate}
+
+
+\subsubsection*{Charger une partie}
+\begin{enumerate}
+    \item Lancez le jeu, vous voilà dans le menu.
+    \item Dans la barre de menu, choisissez 'Options'.
+    \item Sélectionnez 'Utiliser la sauvegarde'.
+    \item La partie se lance là où vous l'aviez laissée.
+\end{enumerate}
+
+\subsubsection*{Charger une grille}
+\begin{enumerate}
+    \item Lancez le jeu, vous voilà dans le menu.
+    \item Dans 'Type de jeu', choisissez 'Normal'.
+    \item Sélectionnez le nombre de joueurs.
+    \item Sélectionnez une des options manuelles disponibles.
+    \item En haut de la nouvelle fenêtre, choisissez une grille dans le menu déroulant.
+    \item Vous pouvez maintenant modifier la grille et la sauvegarder ou jouer.
+\end{enumerate}
+
+\subsubsection*{Sauvegarder une grille}
+\begin{enumerate}
+    \item Lancez le jeu, vous voilà dans le menu.
+    \item Dans 'Type de jeu', choisissez 'Normal'.
+    \item Sélectionnez le nombre de joueurs.
+    \item Sélectionnez une des options manuelles disponibles.
+    \item Créez votre grille ou modifiez une grille existante.
+    \item En haut de la fenêtre, activez le bouton 'Sauvegarder' et donnez un nom à la grille ou laissez le nom par défaut.
+    \item Vous pouvez maintenant jouer avec la grille ou bien quitter.
+\end{enumerate}
+
+\subsubsection*{Jouer en ligne}
+\begin{enumerate}
+    \item Lancez le jeu, vous voilà dans le menu.
+    \item Dans la barre de menu, choisissez 'En ligne'.
+    \item Si vous êtes le premier joueur, sélectionnez 'Héberger une partie'.\\
+    Sinon, sélectionnez 'Se connecter à un serveur', puis soit 'scan local' et l'adresse IP va se compléter d'elle-même si il trouve le serveur. Sinon, entrez l'adresse IP manuellement.\\
+    Une fois l'adresse trouvée, poussez le bouton 'ok'. Si vous voulez jouer via internet et non pas par réseau local, vous devez alors rediriger le port TCP 54555 et le port UDP 54777 vers votre ordinateur et donner au client votre adresse IP externe.
+    \item Créez votre grille puis activez le bouton 'Jouer'.
+    \item Vous jouez maintenant contre votre adversaire, le joueur rouge commence.
+    \end{enumerate}
+
+\end{document}

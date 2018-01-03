@@ -1,0 +1,42 @@
+\subsection{Quotas}
+\label{subsec:quotas}
+
+Dans le but de mieux gérer l'espace personnel de chaque utilisateur, des quotas
+ont été mis en place sur la partition \textit{/home}.
+
+À la création de chaque utilisateur, un quota avec une limite
+dure\footnote{Limite que nul ne peut dépasser.} de 500 Mo et une limite
+douce\footnote{Limite que l'utilisateur (ou groupe) peut dépasser pendant un
+certain laps de temps.} de 400 Mo, lui sera attribué.
+
+\underline{Remarque :} lors du dépassement de la limite douce, l'utilisateur
+sera averti.
+
+\begin{lstlisting}[language=bash]
+  # Installation of quotatool, useful for scripts.
+  apt-get install -y quota quotatool
+  
+  # Add this to /etc/fstab to the /home line.
+  usrquota,grpquota
+
+  fuser -k /dev/mapper/VolGroup-LVhome
+  # Create the file 'aquota.user' and aquota.group' and
+  # initialize all the partition that contains quotas.
+  quotacheck -cguvf /dev/mapper/VolGroup-LVhome
+  quotacheck -vagum
+  
+  # Unmout the /home partition.
+  umount -l /dev/mapper/VolGroup-LVhome
+
+  # Activate quota.
+  quotaon -avug
+  
+  # Mount the /home partition.
+  mount /dev/mapper/VolGroup-LVhome
+  
+\end{lstlisting}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

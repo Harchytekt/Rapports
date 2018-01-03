@@ -1,0 +1,42 @@
+\section{Problèmes rencontrés}
+\label{sec:probl-renc}
+
+\subsection{Joystick}
+\label{sec:joystick}
+
+La librairie de python comportait une erreur dans la prise en charge du joystick
+\footnote{\href{https://www.element14.com/community/community/raspberry-pi/raspberry-pi-accessories/blog/2017/01/23/raspberry-pi-sense-hat-enabling-the-joystick}{https://www.element14.com/}}. Il
+a fallu supprimer les fichiers d'extension \og \textit{.py} \fg relatifs au
+Sense HAT et télécharger les fichiers mis à jour.
+
+Pour terminer, il était nécessaire de supprimer un point mal placé dans l'une des
+importations de librairies.
+
+\subsection{Matrice}
+\label{sec:matrice}
+
+Étant donné la taille du Raspberry Pi, la matrice du Sense HAT s'est avérée fort petite
+pour l'implémentation du jeu de Pong traditionnel.
+
+De ce fait, il y avait manque d'espace pour la taille des raquettes que nous
+avons été obligé de limiter à une LED, tout comme pour la balle, ce qui augmente
+la difficulté de prise en main du jeu.
+
+De plus, les angles ont aussi été atteints par cette limitation matricielle, nous
+empêchant d'utiliser d'autres angles que des multiples de 45.
+
+\subsection{Gyroscope}
+\label{sec:gyroscope}
+
+Dans le cadre du projet, il nous a été demandé d'ajouter, comme fonctionnalité
+supplémentaire, une version du jeu se basant sur l'utilisation du gyroscope
+incorporé au Sense HAT.
+
+Suite à un manque d'ergonomie lié à la manipulation du joystick et de
+l'inclinaison du gyroscope, nous avons décidé d'implémenter une intelligence
+artificielle (IA) comme autre fonctionnalité.
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

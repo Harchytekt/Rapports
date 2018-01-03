@@ -1,0 +1,118 @@
+\documentclass[a4paper, 12pt]{article}
+% Allows writing the document in French.
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[francais]{babel}
+% Allows to change the margins of the pages.
+\usepackage[margin=2.5cm]{geometry}
+% Allows to change the line spacing.
+\renewcommand{\baselinestretch}{1.5}
+% Provides generic commands \degree, \celsius, etc.
+\usepackage{gensymb}
+% Allows to use images.
+\usepackage{graphicx}
+% Includes pseudocode or algorithms.
+\usepackage{listings, lstautogobble}
+% Allows change items properties
+\usepackage{enumitem}
+% Adds space between paragraphs.
+\usepackage{parskip}
+% Supports Text Companion fonts (necessary for gensymb).
+\usepackage{textcomp}
+% Allows to create better tables.
+\usepackage{tabularx}
+% Allows to draw.
+\usepackage{tikz}
+% Allows to color the raw of an array.
+\usepackage{colortbl}
+% Allows to use colors.
+\usepackage{xcolor}
+% Allows hyperlinks within the document.
+\usepackage[colorlinks=true,urlcolor=black,linkcolor=black]{hyperref}
+% Allows to use copyright.
+\usepackage[
+    type={CC},
+    modifier={by-nc-nd},
+    version={4.0},
+    ]{doclicense}
+
+% Allows a better depth for the table of contents.
+\setcounter{tocdepth}{2}
+% Allows a better depth for the sections.
+\setcounter{secnumdepth}{4}
+
+% New column type
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+
+% Define colors for color scheme
+\definecolor{black}{HTML}{333333}
+\definecolor{currentLine}{HTML}{282A2E}
+\definecolor{selection}{HTML}{373B41}
+\definecolor{grey}{HTML}{EEEEEE}
+\definecolor{comment}{HTML}{969896}
+\definecolor{red}{HTML}{CC6666}
+\definecolor{orange}{HTML}{DE935F}
+\definecolor{yellow}{HTML}{F0C674}
+\definecolor{green}{HTML}{B5BD68}
+\definecolor{aqua}{HTML}{8ABEB7}
+\definecolor{blue}{HTML}{81A2bE}
+\definecolor{purple}{HTML}{B294BB}
+\definecolor{bleuSkype}{HTML}{00AFF0}
+\definecolor{jauneSnapchat}{HTML}{FFFC00}
+
+% Macro
+\makeatletter
+\lst@InstallKeywords k{attributes}{attributestyle}\slshape{attributestyle}{}ld
+\makeatother
+
+% Custom color scheme for bash.
+\lstset{language=bash,
+  basicstyle=\ttfamily\color{black},
+  numbers=left,
+  stepnumber=1,
+  numberstyle=\tiny,
+  autogobble=true,
+  backgroundcolor=\color{grey},
+  commentstyle=\color{comment},
+  stringstyle=\color{green},
+  keywordstyle=\color{red},
+  keywords={home, root, user, @, \$},
+  attributestyle=\color{aqua},
+  moreattributes={ls, now}
+}
+
+% Allows draw lines for the flyleaf.
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+% Starts roman numbering (trick to not numbering the first pages).
+\pagenumbering{roman}
+
+\begin{document}
+\renewcommand{\bibname}{Références}
+\input{src/flyleaf_bw}
+\newpage
+\input{src/blank}
+\input{src/flyleaf}
+\newpage
+\input{src/blank}
+\newpage
+\input{src/license}
+\newpage
+\pagenumbering{arabic}
+\tableofcontents
+\newpage
+\input{src/introduction}
+\newpage
+\input{src/choices}
+\newpage
+\input{src/services}
+\newpage
+\input{src/conclusion}
+\newpage
+\phantomsection
+\input{src/references}
+\newpage
+\input{src/blank}
+\end{document}
