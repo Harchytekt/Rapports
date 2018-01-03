@@ -7,7 +7,7 @@ Voici les quatre rapports de cette année :
 J'ai décidé de le faire et d'en faire un [pré-TFE](Gestion%20de%20projets/Rapport.pdf).
 - Pour le cours d'_Initiation aux nano-ordinateurs_, nous devions programmer le jeu de Pong sur un Raspberry Pi 3.0 en Python et à deux.  
 Il fût décomposé comme suit :
-	- La [présentation](Initiation%20aux%20nano-ordinateurs/Présentation/Présentation.pdf).  
+	- La [présentation](Initiation%20aux%20nano-ordinateurs/Présentation/Présentation.pdf).  
 	- Le [rapport](Initiation%20aux%20nano-ordinateurs/Rapport/Rapport.pdf).
 - Le plus compliqué fût le projet du cours de _Linux_ : nous devions administrer, par groupe de deux, un serveur sous Linux.  
 En voici le [rapport](Linux/Rapport.pdf).
