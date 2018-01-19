@@ -1,0 +1,43 @@
+\section{Fonctionnement de Laravel}
+\label{sec:laravel_functioning}
+
+
+\subsection{Authentification}
+\label{subsec:auth}
+L'authentification est nativement gérée par Laravel \textit{(au travers du module} auth\textit{)}.
+
+Une fois activée, il faut migrer la base de données afin de prendre en compte l'authentification.\\
+Les utilisateurs peuvent désormais s'inscrire, se \textit{(dé)}connecter ou réinitialiser leur mot de passe \textit{(une fois un serveur mail ajouté)}.
+
+\subsubsection{Les middlewares}
+\label{sec:middlewares}
+Les pages sont protégées par des middlewares \textit{(Authenticate.php} et \textit{RedirectIfAuthenticated.php)}. \\
+Les middlewares forment une couche de protection entre les requêtes et l'application : ils effectuent des traitements à l'arrivée ou au départ des requêtes. \\
+Par exemple, la gestion des sessions, des cookies et de l'authentification se fait dans un middleware. On a plusieurs couches de middlewares \textit{(comme des pelures d'ognon)}. Chacun effectue son traitement et transmet la requête ou la réponse au suivant.
+
+Le premier, \textit{Authenticate.php}, vérifie qu'un utilisateur est authentifié. \\  
+Si ce n'est qu'un invité \textit{(guest)}, alors on renvoie \textit{Unauthorized} si la requête est en Ajax. Si elle n'est pas en Ajax, on fait une redirection vers la page d'authentification \textit{(route} login\textit{)}. \\
+Si ce n'est pas un invité, on exécute la requête.
+
+Le second, \textit{RedirectIfAuthenticated.php}, fonctionne pratiquement à l'opposé du fichier \textit{Authenticate.php}. \\
+Si l'utilisateur est authentifié \textit{(auth)}, alors on le renvoie à la page de base du site. \\
+Sinon, on exécute la requête.
+
+La majorité des pages du site ne doivent être accessibles qu'aux utilisateurs authentifiés.
+C'est là qu'entrent en jeu les middlewares : il suffit d'ajouter \textit{middleware('auth')} à la route ou au contrôleur d'une page pour en interdire l'accès aux invités. \\
+C'est donc \textit{Authenticate.php} qui est utilisé.
+
+
+\subsection{Migration}
+\label{subsec:migration}
+Laravel propose cet outil dont le but est de s'occuper de la maintenance de la base de données de l'application.\\
+Une migration permet donc de créer et de mettre à jour une base de données en créant et supprimant des tables, des colonnes dans ses tables, en créant des index...
+
+\newpage
+\subsection{Routage}
+\label{subsec:routage}
+Le rôle principal du routage est de faire correspondre un \textit{nommage particulier} représentant un accès aux services de l'application vers le contrôleur associé.\\
+Une fois le nommage effectué, le serveur web doit faire correspondre les adresses aux bonnes actions.\\
+Par exemple, l'adresse \textit{http://learnit.dev/authenticated/mesCours/inscrits}
+devient \textit{http://learnit.dev/coursinscrits}.
+

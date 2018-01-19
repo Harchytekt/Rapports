@@ -1,0 +1,59 @@
+\section{Présentation du projet}
+\label{sec:presentation}
+
+
+\subsection{Introduction}
+\label{sec:intro}
+
+Dans le cadre du cours d'\textbf{Application des microcontrôleurs}, il nous a été demandé de réaliser la programmation d'un automate en Ladder.\\
+Dans cette optique, nous avions accès au programme \textit{ProcesSim} ainsi qu'aux fichiers composant l'automate.
+
+
+\subsection{Énoncé}
+\label{sec:enonce}
+
+L'automate doit trier les boites selon leur couleur.\\
+
+L'appui sur le bouton poussoir \guillemotleft \ \textbf{Start} \guillemotright \ allume la lampe \textbf{\textit{En service}} et met en route le convoyeur principal.\\
+
+Pour mettre en marche les convoyeurs d'évacuation, le sélecteur \textbf{I17} doit être enclenché.\\
+
+À la détection d'une boite argentée par le capteur \textbf{I1}, le \textbf{Vérin A} pousse la boite sur le convoyeur d'évacuation.\\
+Un compteur s'incrémente, indiquant le nombre de boites.\\
+Un compteur différent est utilisé pour chaque modèle de boite.\\
+
+Une alarme lumineuse est générée lors de défauts des moteurs.\\
+La présence d'un défaut arrête totalement le fonctionnement de l'installation pour des raisons de sécurité.\\
+
+L'arrêt de ces lampes ne peut s'effectuer que par l'utilisation du sélecteur à clé \textbf{I16} \textit{(appelé acquittement)}.
+
+\newpage
+
+\subsection{Langage et outil}
+\label{sec:langages}
+
+Dans le cadre de ce cours, nous avons appris le \textit{Langage Ladder}, un langage graphique très populaire auprès des automaticiens pour programmer les automates programmables industriels.\\
+Il ressemble un peu aux schémas électriques, et est facilement compréhensible.
+
+\vspace{0.5cm}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[scale=0.15]
+  {textures/images/tools/Ladder_AND.pdf}
+  \caption{Fonction ET en Ladder \textbf{(X ET Y)}}
+  \label{fig:ladder-and}
+\end{figure}
+
+Comme outil, nous avons utilisé \textit{ProcesSim} qui réalise la simulation du comportement des machines et des processus industriels.\\
+Cet outil, développé au \textbf{Centre des Recherche de la Haute Ecole de la Communauté française en Hainaut} \textit{(CReHEH)}, met les concepteurs, les agents de maintenance, les opérateurs et les apprenants dans des situations proches de la réalité.
+
+\vspace{0.5cm}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[scale=0.49]
+  {textures/images/tools/ProcesSim.pdf}
+  \caption{Logo de ProcesSim}
+  \label{fig:processim}
+\end{figure}

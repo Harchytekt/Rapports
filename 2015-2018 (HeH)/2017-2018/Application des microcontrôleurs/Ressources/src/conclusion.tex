@@ -1,0 +1,60 @@
+\section{Conclusion}
+\label{sec:conclusion}
+
+
+\subsection{Résultat}
+\label{sec:resultat}
+
+L'automate trie les boites d'après leur couleur \textit{(argent, cuivre et or)}.\\
+
+Lorsqu'il est à l'arrêt, la lampe \textit{Hors-service} est allumée, et la lampe \textit{En service} est éteinte. \\
+
+L'appui sur le bouton poussoir  \guillemotleft \ \textbf{Start} \guillemotright \ allume la lampe \textit{En service}, éteint la lampe \textit{Hors-service} et met en route le moteur du convoyeur principal.\\
+Sauf dans le cas où un défaut moteur a été détecté, ce qui arrêterait \textit{totalement} le fonctionnement de l'automate.\\
+Celui-ci devra d'abord être corrigé afin de désactiver l'alarme lumineuse par un acquittement à l'aide du sélecteur à clé \textbf{I16}. Le moteur pourra alors être mis en route.\\
+
+Pour mettre en marche le moteur des convoyeurs d'évacuation, le sélecteur \textbf{I17} doit être enclenché.\\
+S'il n'est pas enclenché, un défaut moteur sera levé et affiché par la lampe \textbf{Q1}. Voici les différents cas qui lèveront le défaut :
+
+\begin{itemize}
+    
+    \item le cas du défaut au moteur principal, c'est le cas le plus simple.\\
+    Le moteur se retrouve en surcharge, ce qui enclenche l'arrêt d'urgence.
+    
+    \item le cas du défaut au moteur des convoyeurs d'évacuation, divisé en différents cas.
+    
+    \begin{itemize}
+    
+        \item le cas simple, le moteur est en surcharge, ce qui enclenche l'arrêt d'urgence.
+        
+        \item le cas de l'encombrement des tapis d’évacuation.\\
+        Il est levé lorsqu'une boite est sous le détecteur du tapis d'évacuation, et qu'une autre \textit{(du même type)} se retrouve devant le vérin.\\
+        C'est le cas lorsque le moteur des tapis d’évacuation est à l'arrêt.
+        
+        \item le cas \textit{bonus}, les tapis d'évacuation sont stoppés, mais le moteur principal ne l'est pas.\\
+        Lorsqu'une boite est détectée par le dernier détecteur, \textbf{I3}, un défaut est levé.\\
+        Sans ce dernier cas, la boite tomberait du tapis.
+        
+    \end{itemize}
+    
+\end{itemize}
+
+\newpage
+
+Lorsqu'une boite argentée ou cuivrée est repérée par le détecteur idoine, le moteur principal s'arrête et le vérin place la boite sur le tapis d'évacuation approprié.\\
+Le vérin se replace et le moteur principal se relance une fois que la boite est détectée sur son tapis d'évacuation.\\
+À ce moment, le compteur qui lui est lié s'incrémente de un.\\
+
+Pour les boites dorées, il n'y a pas de vérin, donc pas d'arrêt du moteur principal.\\
+En effet, une fois arrivées au bout du tapis principal, les boites se retrouvent sur le tapis d'évacuation correct s'il est activé.\\
+C'est alors le dernier détecteur, \textbf{I3}, qui incrémente le compteur adéquat.\\
+
+Les compteurs sont réinitialisés dans deux cas :
+
+\begin{itemize}
+    
+    \item premier cas, l'automate est stoppé par le bouton poussoir \guillemotleft \ \textbf{Stop} \guillemotright.
+    
+    \item second et dernier cas, le sélecteur à clé, \textbf{I18}, est activé afin de réinitialiser les compteurs à la main.
+    
+\end{itemize}

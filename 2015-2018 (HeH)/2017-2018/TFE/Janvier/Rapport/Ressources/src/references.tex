@@ -1,0 +1,46 @@
+\nocite{*}
+\addcontentsline{toc}{section}{Références}
+
+\newif\ifafterfirstsubbib % If not first bib, new page
+\afterfirstsubbibfalse
+
+\makeatletter
+\def\NMSB@styleclearpagebar#1#2{%
+  \ifafterfirstsubbib% NEW
+    \clearpage% NEW
+  \else% NEW
+    \afterfirstsubbibtrue% NEW
+  \fi% NEW
+  \hskip-\leftmargin%
+  \vbox{%
+    \medskip\par
+    \vrule height \SBabovesepwidth depth 0pt width \textwidth
+    \vskip.3\baselineskip\par\noindent
+    {\null\hfill
+      \csname SB\NMSB@level font\endcsname{#1#2}%
+      \hfill\null}%
+    \vskip-.4\baselineskip\par\noindent
+    \vrule height \SBbelowsepwidth depth 0pt width \textwidth}}
+\makeatother
+
+\SBtitlestyle{clearpagebar}
+
+
+\begin{category}{Livres}
+    \SBentries{devFE}
+    \SBentries{guideTFE}
+    \SBentries{i&m}
+    \SBentries{latex}
+\end{category}
+
+\begin{category}{Internet}
+    \SBentries{website:authOC}
+    \SBentries{website:bootstrap}
+    \SBentries{website:csrf}
+    \SBentries{website:hachage}
+    \SBentries{website:laravel}
+\end{category}
+
+\bibliographystyle{acm} 
+\bibliography{bibli}
+

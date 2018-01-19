@@ -1,0 +1,170 @@
+\section{Choix personnels}
+\label{sec:personnal-choices}
+Cette section reprend les différents choix que j'ai effectués par rapport aux technologies, outils, langages et au thème de ce travail.
+
+\subsection{Technologies}
+\label{subsec:tech}
+
+\subsubsection{Framework}
+\label{sec:framework}
+Les frameworks évitent de perdre du temps à réinventer la roue en 
+réutilisant ce qui a déjà été fait par d'autres, souvent plus compétents, et qui a, en plus, été utilisé et validé par de nombreux utilisateurs.\\
+Ils servent surtout à assister le développeur dans son travail plutôt qu'à combler son manque de connaissances.
+
+Utiliser un framework ne présente pratiquement que des avantages.\\
+En effet, l'utilisation d'un composant, déjà tout prêt et qui a fait ses preuves, est la promesse d'un gain de temps, de fiabilité, de mises à jour simples,...
+
+Il existe des frameworks pour tous les langages de programmation et en particulier pour PHP.
+
+\subsubsection{Bootstrap}
+\label{sec:bootstrap}
+Bootstrap est un framework web open-source utile à la création du design de sites et d'applications web.\\
+C'est le framework d'interface le plus populaire de nos jours.\\
+Il contient des éléments interactifs tels que des formulaires, boutons, outils de navigation,...
+
+Il est très simple à utiliser et à modifier. Nous l'avons appris à l'école. \\
+Il permet également de créer, facilement, un site adaptatif. 
+
+\vspace{0.5cm}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[scale=0.14]
+  {textures/images/tools/bootstrap.pdf}
+  \caption{Bootstrap}
+  \label{fig:bootstrap}
+\end{figure}
+
+\newpage
+
+\subsubsection{Laravel}
+\label{sec:laravel}
+Laravel est un framework web open-source écrit en PHP, respectant le principe modèle-vue-contrôleur, et entièrement développé en programmation orientée objet.
+
+Deux de ses points forts sont sa documentation et sa large communauté.\\
+Il regroupe aussi de nombreuses bibliothèques qui facilitent la gestion de sessions, l'authentification, la validation d'entrées \og \textit{utilisateurs} \fg, la création de requêtes SQL,...\\
+Par exemple, le système de gestion des requêtes HTTP est celui de Symfony auquel un système de routage a été rajouté. 
+
+\vspace{0.5cm}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[scale=0.2]
+  {textures/images/tools/laravel.pdf}
+  \caption{Laravel}
+  \label{fig:laravel}
+\end{figure}
+
+
+\subsubsection{Services mail}
+\label{sec:services_mail}
+De nombreux services mails sont pris en charge par Laravel.
+
+En local, j'ai utilisé MailHog\footnote{\href{https://github.com/mailhog/MailHog}{Lien vers GitHub : https://github.com/mailhog/MailHog}} pour sa simplicité d'utilisation. Je l'ai découvert et utilisé l'année passée dans le cadre du projet du cours de \textit{Programmation web} et il ne m'a causé aucun soucis.
+
+Pour la version serveur, j'avais le choix entre \textit{Mailgun}, \textit{SMTP}, \textit{Mailtrap}, etc.\\
+Après de nombreuses recherches, Mailgun\footnote{\href{https://www.mailgun.com}{Lien vers Mailgun : https://www.mailgun.com}} semble le choix le plus populaire parmi les développeurs utilisant Laravel.\\
+En effet, deux lignes suffisent pour le configurer dans Laravel.
+
+\vspace{1cm}
+
+\begin{figure}[!h]
+    \centering
+    \begin{minipage}[c]{0.4\textwidth}
+        \centering
+        \includegraphics[scale=0.215]
+        {textures/images/tools/mailhog.pdf}
+        \caption{MailHog}\label{fig:mailhog}
+    \end{minipage} \qquad
+    \begin{minipage}[c]{0.4\textwidth}
+        \centering
+        \includegraphics[scale=0.14]
+        {textures/images/tools/mailgun.pdf}
+        \caption{Mailgun}\label{fig:mailgun}
+    \end{minipage}
+\end{figure}
+
+\newpage
+
+\subsection{Outils}
+\label{subsec:tools}
+Étant donné que mon système d'exploitation est macOS, l'utilisation de \textbf{Laravel Valet} était une évidence.\\
+C'est un environnement de développement minimaliste exclusif à macOS qui configure le Mac afin qu'il exécute en permanence Nginx et PHP7 préalablement installés. En outre, il utilise la technologie DnsMasq pour renvoyer toutes les requêtes depuis \textbf{*.dev} aux sites installés sur la machine locale. 
+
+\vspace{0.5cm}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[scale=1.3]
+  {textures/images/tools/laravelValet.pdf}
+  \caption{Laravel Valet}
+  \label{fig:laravel_valet}
+\end{figure}
+
+En ce qui concerne l'éditeur de texte, c'est \textbf{Atom} qui a été retenu pour sa simplicité, sa modularité ainsi que pour la familiarité que je ressens envers lui. 
+
+\vspace{0.5cm}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[scale=0.15]
+  {textures/images/tools/atom.pdf}
+  \caption{Atom}
+  \label{fig:atom}
+\end{figure}
+
+\newpage
+
+\subsection{Langages}
+\label{subsec:languages}
+L'application étant dynamique, \textit{les données proviennent d'une base de données}, l'un des langages utilisé sera \textbf{MySQL}.\\
+Le \textbf{PHP} a été choisi afin d'exploiter les données provenant de formulaires. \\Il permet également de gérer des sessions, de générer dynamiquement du code HTML et CSS, etc.
+
+Ceux-ci sont, bien entendu, accompagnés du HTML, CSS ainsi que du JavaScript \textit{(et jQuery)} pour la création du site.
+
+\vspace{1cm}
+
+\begin{figure}[!h]
+    \centering
+    \begin{minipage}[c]{0.4\textwidth}
+        \centering
+        \includegraphics[scale=0.15]
+        {textures/images/tools/mysql.pdf}
+        \caption{MySQL}\label{fig:mysql}
+    \end{minipage} \qquad
+    \begin{minipage}[c]{0.4\textwidth}
+        \centering
+        \includegraphics[scale=0.15]
+        {textures/images/tools/php.pdf}
+        \caption{PHP}\label{fig:php}
+    \end{minipage}
+\end{figure}
+
+\subsection{Thème}
+\label{subsec:theme}
+Le but du site étant éducatif, je l'ai imaginé comme s'affichant sur un tableau d'école.\\
+%prenant place sur un tableau d'école.\\
+J'ai alors découvert, au cours de mes pérégrinations, \textbf{Bootswatch}\footnote{\href{https://bootswatch.com}{Lien vers Bootswatch : https://bootswatch.com}}.\\
+Ce site propose des thèmes gratuits pour Bootstrap dont un nommé \textit{Sketchy}. Celui-ci propose, comme son nom l'indique, un look \og \textit{dessiné à la main} \fg qui se lie parfaitement à l'idée du tableau.
+
+Pour ce qui est des icônes, j'utilise \textbf{Font Awesome}\footnote{\href{https://fontawesome.com/}{Lien vers Font Awesome : https://fontawesome.com/}} depuis quelques temps.\\
+C'est une police d'écriture qui permet d'afficher des icônes gratuites, personnalisables et redimensionnables, car sous format vectoriel.\\
+Dans sa dernière version, la version 5. 903 icônes gratuites sont disponibles.
+
+\vspace{1cm}
+
+\begin{figure}[!h]
+    \centering
+    \begin{minipage}[c]{0.4\textwidth}
+        \centering
+        \includegraphics[scale=0.15]
+        {textures/images/tools/bootswatch.pdf}
+        \caption{Bootswatch}\label{fig:bootswatch}
+    \end{minipage} \qquad
+    \begin{minipage}[c]{0.4\textwidth}
+        \centering
+        \includegraphics[scale=0.14]
+        {textures/images/tools/fontAwesome.pdf}
+        \caption{Font Awesome}\label{fig:font_awesome}
+    \end{minipage}
+\end{figure}

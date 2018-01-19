@@ -1,0 +1,78 @@
+\documentclass[serif]{beamer}
+
+% Charge les paquets
+\input{hehBeamerCore/packages/hehBeamerPackagesList}
+% Charge la configuration des paquets
+\input{hehBeamerCore/packages/hehBeamerPackagesConfiguration}
+% Charge les couleurs
+\input{hehBeamerCore/colors/colors}
+% Charge les variables
+\input{hehBeamerCore/definitions/hehBeamerDefinitions}
+% Charge le thème de la HEH
+\input{hehBeamerCore/theme/hehBeamerTheme}
+% Charge les commandes personnalisées
+\input{hehBeamerCore/commands/hehBeamerCommands}
+% Permet de personnaliser la légende des figures. (http://www.peteryu.ca/tutorials/publishing/latex_captions_old)
+\usepackage{caption}
+\captionsetup[figure]{labelformat=simple, labelsep=colon}
+% Affiche les numéros des listes enumerate sans puce
+\setbeamertemplate{enumerate items}[default]
+% Affiche les figures caption en rouge
+\usepackage[labelfont={color=hehRouge}]{caption}
+
+
+
+
+
+% Veuillez changer les champs ci-dessous
+
+% Votre nom
+\nom{Ducobu}
+
+% Votre prénom
+\prenom{Alexandre}
+
+% Votre adresse email
+\email{alexandre.ducobu@std.heh.be}
+
+% Le titre complet de votre cours ou de la présentation
+\titre{Développement d'un site web permettant de suivre un cours et de tester les connaissances acquises}
+
+% Le titre abrégé de votre cours ou de la présentation
+\titreAbrege{TFE : learnIT}
+
+% L'année scolaire (exemple: 2016 -- 2017). Le double tiret est important.
+\annee{2017 -- 2018}
+
+% L'interligne souhaité (par défaut 1.2)
+\interligne{1.2}
+
+% Taille image de la page de garde
+\configure{\logoCampus}{0.35}
+
+
+
+
+% Charge les données de l'auteur
+\input{hehBeamerCore/authorInfos/hehBeamerAuthorInfos}
+% Charge la configuration du document
+\input{hehBeamerCore/configuration/hehBeamerDocumentConfiguration}
+
+
+\begin{document}
+	\pageDeTitre
+	
+	\begin{frame}
+        \frametitle{Sommaire}
+        \tableofcontents
+    \end{frame}
+    
+    \newPart{introduction}
+	
+	\newPart{etat}
+	
+	\newPart{demonstration}
+    
+	%\hehBeamerInfo
+	
+\end{document}
