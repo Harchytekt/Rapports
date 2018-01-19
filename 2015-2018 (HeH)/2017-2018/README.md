@@ -3,7 +3,7 @@
 Cette année, nous avions six projets à mener à bien, seulement celui sur _Windows Server_ n'a pas demandé de rapport.  
 Voici les cinq rapports de cette dernière année :
 
-- [Celui](Application%20des%20microcontrôleurs/Rapport.pdf) du cours d'_Application des microcontrôleurs_ était de programmation d'un automate industriel en Ladder.
+- [Celui](Application%20des%20microcontrôleurs/Rapport.pdf) du cours d'_Application des microcontrôleurs_ était de programmation d'un automate industriel en Ladder.
 - Pour le cours d'_Applications et systèmes d'entreprise_, nous devions développer un site de prise de rendez-vous vétérinaires pour chiens à ~~quatre~~ trois.  
 Ce site devait être développé à l'aide de Spring et d'Angular.
 - Le projet du cours d'_Applications sur Android_ était lié au premier : il nous fallait développer une application Android afin de superviser et commander à distance deux processus industriels commandés par des automates.  
