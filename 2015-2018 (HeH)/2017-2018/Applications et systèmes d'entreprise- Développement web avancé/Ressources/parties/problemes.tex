@@ -1,0 +1,33 @@
+%!TEX root = ../apese-rapport.tex
+\section{Problèmes rencontrés}
+	
+	\subsection{Mise en place du projet}
+	La mise en place du projet ne fut pas une chose facile. Au départ, nous utilisions IntelliJ afin de créer celui-ci. Cet éditeur devait nous générer une base complète pour réaliser notre projet dans les meilleures conditions, or nous avons eu pas mal de problèmes. Des erreurs diverses apparaissaient dans le code généré, certaines dépendances n'étaient pas correctement ajoutées au projet et l'arborescence n'était pas très optimisée.
+	
+	Afin de pallier ce problème, nous avons donc utilisé un outil en ligne permettant de générer la base de notre projet (Spring Initializr). Celui-ci nous permet de sélectionner plusieurs options comme le moteur de production (Gradle ou Maven), le langage, la version du framework Spring ainsi que les dépendances. Une fois les options sélectionnées, le site génère un projet à télécharger sous forme d'archive.
+	
+	\subsection{Connexion à la base de données}
+	Pour stocker les données, nous utilisons une base de données PostgreSQL hébergée sur Heroku. Pour effectuer certains tests (création de tables, ajouts de colonnes, de données), nous avons utilisé l'outil de gestion intégré à IntelliJ. Cependant, l'URL de connexion fournie par Heroku était incorrecte. Il nous était alors impossible de se connecter à la base de données aussi bien avec l'outil qu'avec notre application.
+	
+	Cependant, Heroku fournit également les informations de connexion nécessaires (hôte, nom d'utilisateur, mot de passe, numéro de port, \dots). Grâce à ces informations et après une lecture plus approfondie de la documentation d'Heroku, nous sommes parvenus à écrire une URL correcte pour la connexion à la base de données.
+	
+	\subsection{Communication avec la base de données}
+	Alors que nous avancions dans le projet, nous nous sommes rendu compte que le nombre de connexions était limité à 20 sur Heroku. Cela n'aurait pas dû poser de problèmes car nous n'étions que 3 à nous connecter en simultané sur la base de données. Or, Heroku comptabilisait, la plupart du temps, 10 ou 11 connexions. De temps en temps, il nous était même devenu impossible de nous connecter à la base de données car le nombre de connexions limite était atteint.
+	Heureusement, il suffisait de tuer manuellement les connexions à la base de données pour pouvoir se reconnecter à nouveau.
+	
+	\subsection{Aide limitée sur Angular}
+	Les tutos et forums traitants d'Angular sont nombreux, cependant, ceux-ci traitent la plupart du temps AngularJS. Étant donné que nous travaillions avec TypeScript, nous avons eu plus de mal à avancer rapidement dans notre projet, la documentation étant moins fournie et moins précise.
+	
+	\subsection{Problème lié au token}
+	Il a fallu passer plusieurs nuits blanches pour réussir à mettre en place le système de token. On ne savait pas par où commencer et la plupart des cours sur ce sujet étaient incomplets. C'est finalement en regardant une vidéo d'un des développeurs de Spring que notre groupe a réussi à faire fonctionner le oauth2 du côté du back-end.
+	
+	Par la suite, nous avons eu énormément de mal pour récupérer le token du côté du front-end à cause, une nouvelle fois, du manque de documentation.
+	
+	Le dernier bug que nous avions c'est que quand on rafraichissait la page, notre utilisateur perdait son token. Nous avons résolu ce problème en stockant ce dernier dans la mémoire du navigateur.
+	
+	\subsection{Départ d'un membre de l'équipe}
+	Après avoir commencé le projet, nous nous sommes retrouvés confronté à une scission de l'équipe en raison de différends sur la masse de travail à accomplir pour ce projet. La scission du groupe ne pose pas de problème en soi, le problème vient du fait qu'il a fallu réorganiser tous nos outils (Github, ZenHub, Travis, Heroku, Slack, \dots) et cela nous a fais perdre pas mal de temps pour avancer dans notre projet.
+	
+	\subsection{Compilation du projet sur Windows}
+	Afin de pouvoir compiler le projet proprement à la main et sans problèmes, un script a été écrit en bash. Cependant, celui-ci refusait de s'exécuter sur la machine Windows en raison d'une commande non reconnue. Et cela peu importe le terminal utilisé (GitBash, PowerShell, cmder, \dots). Nous avons ensuite eu l'idée d'installer le bash Ubuntu disponible dans les programmes et fonctionnalités de Windows. Celui-ci s'installe directement sur la machine (pas de virtualisation ou de conteneur) et permet d'avoir accès à tous les fichiers de la machine Windows.
+	De cette manière, il est possible de compiler le projet également sous Windows.

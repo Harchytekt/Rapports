@@ -1,0 +1,121 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper, top=2cm, right=2.5cm, bottom=2cm, left=2.5cm]{geometry}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{listings, lstautogobble}
+\usepackage{setspace}
+\usepackage[colorlinks=true, linkcolor=black, citecolor=gray, urlcolor=blue]{hyperref}
+\usepackage{tikz}
+\usepackage{titlesec}
+\usepackage{titling}
+\usepackage{wrapfig}
+\usepackage{xcolor}
+
+% Reduce space below caption
+\setlength{\belowcaptionskip}{-10pt}
+
+% Variables
+\newcommand{\cours}{Développement web avancé}
+
+
+% Commande
+\renewcommand{\maketitle}{
+    \thispagestyle{empty}
+    \begin{center}
+        Di Vrusa Florian \hfill \thedate{} \\
+        Ducobu Alexandre \hfill \null \\
+        Quittet Guillaume \hfill \null
+        \vfill
+        \hrule
+        \vspace{1.0cm}
+        {\Huge\cours{}}\\
+        \vspace{0.7cm}
+        {\LARGE\textit{\thetitle}}
+        \vspace{1.0cm}
+        \hrule
+        \vfill
+        Haute-École en Hainaut --- Campus technique
+    \end{center}
+    \clearpage
+}
+
+\newcommand{\partie}[1]{
+	\input{parties/#1}
+	\clearpage
+}
+
+% Paramètres
+% Dossier des images
+\graphicspath{{img/}}
+
+% Interligne
+\linespread{1.5}
+
+% Set the SQL color scheme for SQL list listing.
+% The palette of solarized color scheme.
+% Light base color.
+\definecolor{base0}{HTML}{839496}
+\definecolor{base1}{HTML}{93A1A1}
+\definecolor{base2}{HTML}{EEE8D5}
+\definecolor{base3}{HTML}{FDF6E3}
+% Color default palette.
+\definecolor{yellow}{HTML}{B58900}
+\definecolor{orange}{HTML}{CB4B16}
+\definecolor{red}{HTML}{DC322F}
+\definecolor{magenta}{HTML}{D33682}
+\definecolor{violet}{HTML}{6C71C4}
+\definecolor{blue}{HTML}{002B36}
+\definecolor{cyan}{HTML}{2AA198}
+\definecolor{green}{HTML}{859900}
+\definecolor{bleuSkype}{HTML}{00AFF0}
+\definecolor{jauneSnapchat}{HTML}{FFFC00}
+\definecolor{roseInstagram}{HTML}{E4405F}
+
+\makeatletter
+\lst@InstallKeywords k{attributes}{attributestyle}\slshape{attributestyle}{}ld
+\makeatother
+\lstset{breaklines=true,
+	keywordstyle=\color{red},
+	backgroundcolor=\color{base3},
+	commentstyle=\color{base0},
+	numbers=left,
+	numberstyle=\tiny,
+	basicstyle=\ttfamily\color{base0},
+	autogobble=true,
+	alsoletter={/.-&},
+	keywords={deploy, provider, api_key, app, branches, only, notifications, email, language, cp, rimraf, mkdirp, ng, npm, scripts, psql, docker, /api, spring.datasource.url, spring.datasource.username, spring.datasource.password, spring.datasource.maxActive, spring.datasource.maxIdle, spring.datasource.minIdle, spring.datasource.initialSize, spring.datasource.removeAbandoned, spring.datasource.driver-class-name, spring.datasource.database-platform, spring.jpa.database-platform, spring.jpa.show-sql, spring.jpa.hibernate.ddl-auto, spring.output.ansi.enabled, server.port},
+	attributestyle=\color{cyan},
+	moreattributes={exec, -it, -h, -U, heroku, lenomdelapp, develop, master, java, ALWAYS, none, org.postgresql.Driver, org.hibernate.dialect.PostgreSQLDialect, &&, -rf, install, -g, --unsafe-perm, false, true, target, secure, serve, -prod, --proxy-config, start, build, postbuild, predeploy, deploy, test, lint, e2e, search, pull, run, --name, -d, -p, -v}
+}
+
+\titleformat{\section}{\huge\bfseries}{\thesection}{0.7em}{}
+\titleformat{\subsection}{\LARGE\bfseries}{\thesubsection}{0.7em}{}
+\titleformat{\subsubsection}{\Large\bfseries}{\thesubsubsection}{0.7em}{}
+\titleformat{\paragraph}{\large\bfseries}{\theparagraph}{0.7em}{}
+
+\begin{document}
+	
+	\author{Guillaume Quittet}
+	\date{Année 2017--2018}
+	\title{Rapport de projet}
+	
+	\maketitle
+	
+	\tableofcontents
+	\clearpage
+	
+	\partie{introduction}
+	\partie{technologies-utilisees}
+	\partie{outils}
+	\partie{déroulement}
+	\partie{problemes}
+	\partie{conclusion}
+		
+	\nocite{heh-logo}
+	\phantomsection{}
+	\addcontentsline{toc}{part}{Références}
+	\bibliographystyle{plain}
+	\bibliography{bibli}
+	
+\end{document}
