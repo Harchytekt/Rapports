@@ -7,7 +7,7 @@ Voici les cinq rapports de cette dernière année :
 - Pour le cours d'_Applications et systèmes d'entreprise_, nous devions développer un site de prise de rendez-vous vétérinaires pour chiens à ~~quatre~~ trois.  
 Ce site devait être développé à l'aide de Spring et d'Angular.  
 Le [rapport](Applications%20et%20systèmes%20d'entreprise-%20Développement%20web%20avancé/Rapport.pdf) fut écrit par les trois membres du groupe.
-- Le projet du cours d'_Applications sur Android_ était lié au premier : il nous fallait développer une application Android afin de superviser et commander à distance deux processus industriels commandés par des automates.  
+- Le [projet du cours d'_Applications sur Android_](Applications%20sur%20Android/Rapport.pdf) était lié au premier : il nous fallait développer une application Android afin de superviser et commander à distance deux processus industriels commandés par des automates.  
 - Dernière année rime avec Travail de Fin d'Études _(TFE)_, en voici donc le rapport.  
 C'est un site éducatif permettant d'apprendre et de créer des cours à propos de n'importe quel sujet développé à l'aide de Laravel.  
 Voici la [présentation d'avancement](TFE/Janvier/Présentation/Présentation.pdf) de Janvier, ainsi que le [rapport partiel](TFE/Janvier/Rapport/Rapport.pdf).
